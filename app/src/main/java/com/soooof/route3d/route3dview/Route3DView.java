@@ -25,6 +25,7 @@ public class Route3DView extends View {
     private Bitmap bitmap;
     private Matrix matrix;
     private Camera camera;
+    private int imgSize;
 
     public Route3DView(Context context) {
         super(context);
@@ -47,6 +48,7 @@ public class Route3DView extends View {
         matrix = new Matrix();
         splitLine = new SplitLine();
         camera = new Camera();
+        imgSize = bitmap.getWidth();
     }
 
 
@@ -75,7 +77,6 @@ public class Route3DView extends View {
     protected void onDraw(Canvas canvas) {
         int centerX = getWidth() / 2;
         int centerY = getHeight() / 2;
-        int imgSize = bitmap.getWidth();
         drawRight(canvas,centerX,centerY,imgSize);
         drawLeft(canvas,centerX,centerY,imgSize);
     }
@@ -107,12 +108,15 @@ public class Route3DView extends View {
         camera.save();
         canvas.translate(centerX, centerY);
 
+        //旋转至折叠的角度
         camera.rotateZ(splitLine.angle);
         camera.rotateX(splitLine.leftFoldAngle);
         camera.applyToCanvas(canvas);
+//        辅助线
 //        canvas.drawLine(-500,0,500,0,paint);
 //        canvas.drawLine(0,-500,0,500,paint);
 
+        //通过matrix的位移和旋转和clipRect 摆正bitmap并且进行裁剪
         matrix.reset();
         matrix.preRotate(splitLine.angle);
         matrix.preTranslate(-imgSize / 2,-imgSize / 2);

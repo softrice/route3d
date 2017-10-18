@@ -27,12 +27,7 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        route_view1 = (Route3DView) findViewById(R.id.route_view1);
-        route_view2 = (Route3DView) findViewById(R.id.route_view2);
-        seekbar1 = (SeekBar) findViewById(R.id.seekbar1);
-        seekbar2 = (SeekBar) findViewById(R.id.seekbar2);
-        tv_num1 = (TextView) findViewById(R.id.tv_num1);
-        tv_num2 = (TextView) findViewById(R.id.tv_num2);
+        findViews();
         seekbar1.setOnSeekBarChangeListener(this);
         seekbar2.setOnSeekBarChangeListener(this);
         route_view1.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         });
         testAnimator2();
 
+    }
+
+    private void findViews() {
+        route_view1 = (Route3DView) findViewById(R.id.route_view1);
+        route_view2 = (Route3DView) findViewById(R.id.route_view2);
+        seekbar1 = (SeekBar) findViewById(R.id.seekbar1);
+        seekbar2 = (SeekBar) findViewById(R.id.seekbar2);
+        tv_num1 = (TextView) findViewById(R.id.tv_num1);
+        tv_num2 = (TextView) findViewById(R.id.tv_num2);
     }
 
     private void testAnimator1() {
