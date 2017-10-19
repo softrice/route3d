@@ -40,8 +40,7 @@ matrix.preTranslate(-imgSize / 2,-imgSize / 2);
 canvas.clipRect(-500, 0, 500, -500);
 canvas.drawBitmap(bitmap,matrix,paint);
 ```
-
-* 动画实现
+### 动画实现
 
 ObjectAnimator和AnimatorSet配合使用
 ```
