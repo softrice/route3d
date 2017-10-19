@@ -46,13 +46,13 @@ canvas.drawBitmap(bitmap,matrix,paint);
 ObjectAnimator和AnimatorSet配合使用
 ```
 routeView.setSplitLine(-90,0,0);
-ObjectAnimator animator1 = ObjectAnimator.ofFloat(route_view1,"leftFoldAngle",0,-45);
+ObjectAnimator animator1 = ObjectAnimator.ofFloat(routeView,"leftFoldAngle",0,-45);
 animator1.setInterpolator(new LinearInterpolator());
 animator1.setDuration(1000);
-ObjectAnimator animator2 = ObjectAnimator.ofFloat(route_view1,"angle",-90,180);
+ObjectAnimator animator2 = ObjectAnimator.ofFloat(routeView,"angle",-90,180);
 animator2.setInterpolator(new DecelerateInterpolator());
 animator2.setDuration(1500);
-ObjectAnimator animator3 = ObjectAnimator.ofFloat(route_view1,"rightFoldAngle",0,45);
+ObjectAnimator animator3 = ObjectAnimator.ofFloat(routeView,"rightFoldAngle",0,45);
 animator3.setInterpolator(new LinearInterpolator());
 animator3.setDuration(1000);
 
